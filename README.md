@@ -7,7 +7,7 @@ Drupal + Next.js
   - `npx create-next-app -e https://github.com/cooldrupal/drext`
   - `cd [APP DIRECTORY]`
   - `cp .env.example .env.local` and set variables
-  - Install and enable drupal Drext module
+  - Install and enable Drupal [Drext module](https://www.drupal.org/project/drext)
   - Configure params/* files
   - `npm run dev`
 
