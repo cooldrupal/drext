@@ -25,6 +25,11 @@ export default async function Home() {
     <>
     <Header menus={menu?.primary_menu} />
     <main>
+      {!blocks?.content?.length &&
+        <h1 className="text-center text-4xl">
+          Welcome to the Drext.js
+        </h1>
+      }
       {blocks?.content?.length &&
         blocks.content.map((block: any) => (
           <div key={block?.block_id}>
