@@ -2,7 +2,7 @@ import { getBlocks } from "@/lib/block"
 import { getDkApiVersion } from "@/lib/utils"
 import { drupal } from "@/lib/drupal"
 
-type BreadcrumbItem = { text: string; url: string };
+type BreadcrumbItem = { text: string; url: string }
 
 export async function getBreadcrumb(path: string | string[], region: string = 'breadcrumb', title_item: string = ''):
   Promise<BreadcrumbItem[] | null | undefined> {
@@ -19,18 +19,18 @@ export async function getBreadcrumb(path: string | string[], region: string = 'b
       const res = await drupal.fetch(apiUrl)
 
       if (!res.ok) {
-        console.error(`Empty fetched applications "${apiUrl}"`);
+        console.error(`Empty fetched applications "${apiUrl}"`)
         return null
       }
       data = await res.json();
     }
     catch (error) {
-      console.error(`Error getting API "${apiUrl}"`, error);
+      console.error(`Error getting API "${apiUrl}"`, error)
       return null
     }
 
     breadcrumb = Object.values(data.data).map(item => {
-      const i = item as { title: string; link?: string };
+      const i = item as { title: string; link?: string }
       return {
         text: i.title,
         url: i.link ?? '',
@@ -39,14 +39,14 @@ export async function getBreadcrumb(path: string | string[], region: string = 'b
   }
   else {
     const breadcrumb_blocks = await getBlocks(path, [region], ['system'])
-    breadcrumb = Object.values(breadcrumb_blocks)[0] ?? null;
+    breadcrumb = Object.values(breadcrumb_blocks)[0] ?? null
     if (breadcrumb) {
       breadcrumb = Object.values(breadcrumb)[0].breadcrumb ?? null
     }
   }
 
   if (title_item) {
-    breadcrumb?.push({ text: title_item, url: '' });
+    breadcrumb?.push({ text: title_item, url: '' })
   }
 
   breadcrumb = breadcrumb.filter((item: any) => item.text && item.text.trim() !== '')

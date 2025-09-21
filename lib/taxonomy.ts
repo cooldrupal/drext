@@ -1,14 +1,14 @@
 import { getResourceCollection } from "next-drupal"
 
 export type Taxonomy = {
-  id: string | number;
-  name: string;
-};
+  id: string | number
+  name: string
+}
 
 export async function getTaxonomyTermsCollection(vocabularies: string[]) {
   const fields: Record<string, Taxonomy[] | null> = {}
   for (const vocab of vocabularies) {
-    fields[vocab] = await getTaxonomyTerms(vocab);
+    fields[vocab] = await getTaxonomyTerms(vocab)
   }
   return fields
 }
