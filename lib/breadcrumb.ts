@@ -49,6 +49,8 @@ export async function getBreadcrumb(path: string | string[], region: string = 'b
     breadcrumb?.push({ text: title_item, url: '' });
   }
 
+  breadcrumb = breadcrumb.filter((item: any) => item.text && item.text.trim() !== '')
+
   return breadcrumb
 }
 
