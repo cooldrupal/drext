@@ -4,17 +4,13 @@ import { Header } from "@/components/drupal/Header"
 import { Footer } from "@/components/drupal/Footer"
 import { Block } from "@/components/drupal/Block"
 import type { Metadata } from "next"
-import { metadataMap } from "@/params/metadata"
+import { getMetatagByPath } from "@/lib/metatag"
 
 const slug = '/'
 
 export async function generateMetadata(
 ): Promise<Metadata> {
-  const metadata = metadataMap(slug)
-  if (!metadata) {
-    return {}
-  }
-
+  const metadata = getMetatagByPath(slug)
   return metadata
 }
 

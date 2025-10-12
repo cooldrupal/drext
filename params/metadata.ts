@@ -8,6 +8,10 @@ export function metadataMap(id?: string) {
     */
   } as Record<string, any>;
 
-  return id ? map[id] : map;
+  if (id) {
+    return map[id] ?? {};
+  }
+
+  return map;
 }
 

@@ -28,18 +28,8 @@ export async function generateMetadata(
   const { slug } = params
 
   const entity = await getEntityByPath(slug)
-  if (!entity) {
-    return {}
-  }
-
   const metatag = getMetatag(entity)
-  if (metatag) {
-    return metatag
-  }
-
-  return {
-    title: entity.label,
-  }
+  return metatag;
 }
 
 export async function generateStaticParams(): Promise<EntityPageParams[]> {

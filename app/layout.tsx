@@ -13,7 +13,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="w-full flex justify-center mt-4 font-metropolis">
+        <div className="w-full flex justify-center mt-4">
           <div className="w-full max-w-screen-lg px-6 py-4">
             <QueryProvider>
               <ProgressProvider>
