@@ -1,7 +1,6 @@
 import { Link } from "@/components/navigation/Link"
 
 export async function Breadcrumb({ breadcrumb, delimiter = '/' }: { breadcrumb: any, delimiter?: string }) {
-  console.log(delimiter)
   return (
     <nav aria-label="breadcrumb" className="text-center">
       <ul className="flex justify-center">
