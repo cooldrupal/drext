@@ -16,7 +16,7 @@ export function Entity({ entity, view }: EntityProps) {
   const data = entity.attributes ?? entity;
   let entity_type = entity.type
   if (view) {
-    entity_type = `${entity_type}--${view}`
+    entity_type = `${entity_type}--${view.replaceAll("_", "-")}`
   }
   const Component = componentsMap[entity_type];
   return Component ? <Component entity={data} /> : <Default entity={data} />;
